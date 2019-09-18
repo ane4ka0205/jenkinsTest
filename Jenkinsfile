@@ -4,14 +4,14 @@ pipeline{
     agent any
     
     stages{
-        stage("Stage1") {
+        stage("mvn clean") {
             steps{
                 withMaven(maven : 'maven_3_6_2') {
                     sh 'mvn clean compile'
                 }
             }
         }
-        stage("Testing Stage"){
+        stage("mvn test"){
             steps{
                 withMaven(maven : 'maven_3_6_2') {
                     sh 'mvn test'
